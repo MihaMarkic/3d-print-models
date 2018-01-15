@@ -2,7 +2,7 @@ include <common.scad>;
 
 charger_x=90;
 charger_y=57.5;
-charger_z = 5;
+charger_z = 4;
 
 center_x = between_pins_x/2;
 center_y = between_pins_y/2;
@@ -13,16 +13,18 @@ module quarter() {
     union() {
         pin();
         difference() {
-            rotate(90) translate([0, -d_large/2]) cube([between_pins_y/2, d_large, h]);
-            pin_hole();
+            union() {
+                rotate(90) translate([0, -d_large/2]) cube([between_pins_y/2, d_large, h]);
+                dist_from_large_y = (between_pins_y - charger_y + d_large) / 2;
+                first_support_y = dist_from_large_y-d_large/2;
+                remaining_y = center_y - (first_support_y + horizontal_height);
+                translate([0, first_support_y - 1]) cube([between_pins_x/2, horizontal_height, h]);
+                translate([0, remaining_y]) cube([between_pins_x/2, horizontal_height, h]);
+                charger_space_y = charger_y/2+delta;
+                charger_bay();
+            }
+            #pin_hole();
         }
-        dist_from_large_y = (between_pins_y - charger_y + d_large) / 2;
-        first_support_y = dist_from_large_y-d_large/2;
-        remaining_y = center_y - (first_support_y + horizontal_height);
-        translate([0, first_support_y - 1]) cube([between_pins_x/2, horizontal_height, h]);
-        translate([0, remaining_y]) cube([between_pins_x/2, horizontal_height, h]);
-        charger_space_y = charger_y/2+delta;
-        charger_bay();
     }
 }
 

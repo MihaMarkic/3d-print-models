@@ -11,8 +11,8 @@ delta = .1;
 between_pins_x = outer_large_x - d_large;
 between_pins_y = outer_large_y - d_large;
 
-hole_z = 5;
-hole_full_d = d_small+3*delta;
+hole_z = 10;
+hole_full_d = d_small+8*delta;
 
 h = 2;
 
