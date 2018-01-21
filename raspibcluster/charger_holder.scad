@@ -23,7 +23,7 @@ module quarter() {
                 charger_space_y = charger_y/2+delta;
                 charger_bay();
             }
-            #pin_hole();
+            pin_hole();
         }
     }
 }
