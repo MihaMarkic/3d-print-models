@@ -4,7 +4,7 @@ raspbi_pins_y = 49;
 raspbi_pins_x = 58;
 raspbi_support_h = 4;
 raspbi_support_d = 6;
-raspbi_support_hole_d = 2.4;
+raspbi_support_hole_d = 2.15;
 
 horizontal_support_height = 6;
 horizontal_support_y = (between_pins_y-raspbi_pins_y-horizontal_support_height)/2;
